@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Kesultanan Demak</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hero-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('assets/img/demak-bg.jpg') center/cover;
+            padding: 100px 0;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .content-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            border-left: 5px solid #007bff;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .card-custom {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .card-custom:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img-top-custom {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #007bff;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #007bff;
+            box-shadow: 0 0 0 4px white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-header {
+                padding: 60px 0;
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline:before {
+                left: 10px;
+            }
+            
+            .timeline-item:before {
+                left: -25px;
+            }
+        }
+
+        .card-img-top-custom {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px;
+        object-fit: cover; 
+        }
+        .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: white !important;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: rgba(255,255,255,0.8) !important;
+        padding: 8px 20px !important;
+        margin: 0 5px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover, 
+    .nav-link.active {
+        color: white !important;
+        background-color: rgba(255,255,255,0.1);
+    }
+
+    .navbar-toggler {
+        border-color: rgba(255,255,255,0.1);
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Gaya Header Khusus */
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('assets/img/header.jpg') center/cover no-repeat;
+    padding: 150px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.page-header p.lead {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+/* Responsivitas Header */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 0;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    .page-header p.lead {
+        font-size: 1.2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Kesultanan Demak</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sejarah.html">Sejarah</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/img/header.jpg')">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Sejarah Kesultanan Demak</h1>
+            <p class="lead">Menelusuri Jejak Kejayaan Islam di Tanah Jawa</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Penyebaran Islam -->
+        <section class="content-section">
+            <h2 class="section-title">Penyebaran Islam</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-custom">
+                        <img src="assets/img/wayang.jpg" class="card-img-top card-img-top-custom" alt="Wayang Kulit Islami">
+                        <div class="card-body">
+                            <h5 class="card-title">Kesenian Islam Khas Demak</h5>
+                            <p class="card-text">
+                                Penyebaran Islam oleh Kerajaan Demak sangat kuat melalui dakwah, perdagangan, dan kesenian:
+                                <ul>
+                                    <li><strong>Wayang kulit bernuansa Islam</strong>: Tokoh pewayangan diadaptasi dengan nilai Islam, seperti tokoh Semar yang diberi makna spiritual</li>
+                                    <li><strong>Seni musik rebana</strong>: Digunakan untuk dakwah dan acara keagamaan</li>
+                                    <li><strong>Suluk</strong>: Lagu-lagu mistik Islami seperti Suluk Malang Sumirang karya Sunan Kalijaga</li>
+                                    <i>(sumber: detiknews, kumparan)</i>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-custom">
+                        <img src="assets/img/masjid.jpg" class="card-img-top card-img-top-custom" alt="Masjid Agung Demak">
+                        <div class="card-body">
+                            <h5 class="card-title">Akulturasi Budaya</h5>
+                            <p class="card-text">
+                                Percampuran budaya lokal (Hindu-Buddha) dengan Islam:
+                                <ul>
+                                    <li><strong>Masjid Agung Demak</strong>: Atap bertumpang tiga menyerupai meru (pura Hindu-Bali) tetapi untuk fungsi salat</li>
+                                    <li><strong>Ukiran masjid</strong>: Motif flora-fauna Jawa dengan simbol keislaman</li>
+                                    <li><strong>Pewayangan</strong>: Media dakwah yang memadukan budaya Jawa dan Islam</li>
+                                </ul>
+                                <i>(Sumber: detikcom, kumparan)</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Kehidupan Politik -->
+<section class="content-section">
+    <h2 class="section-title">Kehidupan Politik</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-custom">
+                <div class="card-body">
+                    <p class="card-text">
+                        Kesultanan Demak memainkan peran penting dalam perkembangan politik dan agama di Jawa:
+                        <ul>
+                            <li><strong>Pusat Penyebaran Islam:</strong> Demak menjadi pusat dakwah Islam pertama di Jawa, melanjutkan peran Wali Songo dalam islamisasi Nusantara</li>
+                            <li><strong>Sistem Monarki:</strong> Menganut sistem pemerintahan kerajaan dengan sultan sebagai pemimpin tertinggi yang dibantu oleh para adipati</li>
+                            <li><strong>Sikap Anti-Portugis:</strong> Demak bersikap tegas terhadap Portugis yang menguasai Malaka, bahkan melakukan serangan militer pada 1513</li>
+                            <li><strong>Peran Wali Songo:</strong> Para wali tidak hanya sebagai penyebar agama tetapi juga penasihat politik sultan dalam mengambil keputusan strategis</li>
+                        </ul>
+                        <i>(Sumber: Buku Cetak)</i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card card-custom">
+                <img src="assets/img/raden-patah.webp" class="card-img-top card-img-top-custom" alt="Raden Patah">
+                <div class="card-body">
+                    <h5 class="card-title">Raden Patah</h5>
+                    <p class="card-text">Raden Patah lahir di Palembang, pada tahun 1455. Ia merupakan putra dari Prabu Brawijaya V, yang dikenal sebagai raja terakhir di Kerajaan Majapahit. Raden Patah merupakan seorang putra dari Brawijaya V yang merupakan raja terakhir Majapahit.
+                        Raden Patah juga merupakan anak dari seorang selir Tionghoa.
+                        Raden Patah diketahui memiliki tiga orang istri, yaitu Solekha dari Malokha putri Sunan Ampel, Randu Singa dan Putri Dipati Jipang. Dari ketiga pernikahannya, Raden Patah memiliki anak bernama 
+                        Pati Unus, Raden Trenggono, Raden Kanduruwan, Raden kikin, dan Ratu Nyawa. 
+                        Raden Patah merupakan pendiri sekaligus raja pertama di Kerajaan Demak, yang dibantu oleh Wali Songo. Raden Patah memerintah di Kerajaan Demak mulai dari tahun 1475-1518. Selama masa pemerintahannya, ia memperluas wilayahnya, mengembangkan agama Islam, menerapkan prinsip kerja sama antara ulama dan penguasa, dan memperbaiki sistem pertahanan kerajaan. Ia wafat pada tahun 1518 karena usianya.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-custom">
+                <img src="assets/img/pati-unus.webp" class="card-img-top card-img-top-custom" alt="Pati Unus">
+                <div class="card-body">
+                    <h5 class="card-title">Pati Unus</h5>
+                    <p class="card-text">Pati Unus lahir di Jepara, pada tahun 1488. Ia merupakan putra dari Raden Patah, sekaligus raja kedua di Kerajaan Demak menggantikan ayahnya. Ia memerintah di Kerajaan Demak pada tahun 1518-1521. Selama masa pemerintahannya, ia mendapat julukan sebagai Pangeran Sabang Lor karena ia pernah menyebrangi Laut Jawa menuju Malaka untuk melawan Portugis. Pati Unus meninggal karena serangan Portugis pada tahun 1521.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-custom">
+                <img src="assets/img/trenggono.jpg" class="card-img-top card-img-top-custom" alt="Sultan Trenggono">
+                <div class="card-body">
+                    <h5 class="card-title">Sultan Trenggono</h5>
+                    <p class="card-text">Sultan Trenggono lahir pada tahun 1483. Ia merupakan raja ketiga di Kerajaan Demak yang memimpin pada tahun 1521-1546. Pada masa pemerintahannya, Sultan Trenggono mendirikan benteng dan kantor di Sunda Kelapa. Ia juga mengirimkan tentara Demak yang dipimpin oleh Fatahillah untuk menaklukkan Sunda Kelapa dan melawan Portugis. Upaya yang dilakukan Sultan Trenggono pun berhasil. Sehingga Sultan Trenggono merupakan raja yang mencapai puncak kejayaan Kerajaan Demak. Sultan Trenggono wafat karena dibunuh saat melakukan penyerangan ke Panarukan, Jawa Timur pada tahun 1546.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Seni dan Arsitektur -->
+        <section class="content-section">
+            <h2 class="section-title">Seni dan Arsitektur</h2>
+            <div class="highlight">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Seni Ukir</h4>
+                        <p>Seni ukir kayu pada masjid dan mimbar dengan motif alam dan filosofi Islam. Ukiran ini menggabungkan unsur lokal dengan nilai-nilai keislaman.</p>
+                        <h4>Arsitektur</h4>
+                        <p>Masjid Agung Demak memiliki ciri khas arsitektur Islam Nusantara dengan tiang utama (saka guru) dari kayu jati. Gapura makam Sunan Kalijaga memadukan bentuk candi Hindu dengan fungsi Islam.</p>
+                        <p><i>(Sumber: Brainly, Tirto.id)</i></p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="assets/img/ukiran.jpg" alt="Seni Ukir Demak" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pendidikan dan Sastra -->
+        <section class="content-section">
+            <h2 class="section-title">Pendidikan dan Sastra</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">Pesantren</h5>
+                            <p class="card-text">Pusat pengajaran Islam yang berkembang pesat, dengan metode pengajaran yang mengadaptasi budaya lokal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">Sastra Suluk</h5>
+                            <p class="card-text">Karya sastra berisi ajaran tasawuf seperti Suluk Wijil dan Suluk Sukarsa yang berkembang pesat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">Babad Demak</h5>
+                            <p class="card-text">Naskah sejarah yang mencatat perkembangan Kerajaan Demak dan peran para wali.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tradisi Upacara -->
+        <section class="content-section">
+            <h2 class="section-title">Tradisi Upacara</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-custom">
+                        <img src="assets/img/grebeg.jpg" class="card-img-top card-img-top-custom" alt="Grebeg Besar">
+                        <div class="card-body">
+                            <h5 class="card-title">Grebeg Besar Demak</h5>
+                            <p class="card-text">Upacara memperingati Hari Raya Idul Adha dengan kirab gunungan hasil bumi yang merupakan akulturasi budaya Jawa dan Islam.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-custom">
+                        <img src="assets/img/sekaten.jpg" class="card-img-top card-img-top-custom" alt="Sekaten">
+                        <div class="card-body">
+                            <h5 class="card-title">Sekaten</h5>
+                            <p class="card-text">Tradisi perayaan Maulid Nabi Muhammad SAW yang berasal dari masa Demak dan dilanjutkan di Mataram Islam.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kehidupan Ekonomi -->
+        <section class="content-section">
+            <h2 class="section-title">Kehidupan Ekonomi</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Kerajaan Demak menitikberatkan perekonomian pada sektor perdagangan dan pertanian:
+                                <ul>
+                                    <li>Letak strategis Demak menjadikannya pusat perdagangan alternatif setelah jatuhnya Malaka ke Portugis</li>
+                                    <li>Berkembang pesat di dunia maritim dengan dukungan sektor pertanian yang kuat</li>
+                                    <li>Membangun persekutuan dengan daerah-daerah pesisir utara Jawa yang telah menganut Islam</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keruntuhan Kerajaan -->
+        <section class="content-section">
+            <h2 class="section-title">Keruntuhan Kerajaan Demak</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Wafatnya Sultan Trenggono (1546)</h4>
+                    <p>Sultan Trenggono wafat karena dibunuh, menyebabkan kekosongan kekuasaan dan konflik suksesi.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Konflik Sunan Prawoto vs Arya Penangsang</h4>
+                    <p>Sunan Prawoto yang lebih fokus sebagai ahli agama tidak mampu memimpin secara efektif, sementara Arya Penangsang menuntut tahta.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Perang Saudara</h4>
+                    <p>Konflik internal melemahkan Demak dan memicu pergeseran kekuasaan ke Pajang di bawah Jaka Tingkir.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warisan Budaya -->
+        <section class="content-section">
+            <h2 class="section-title">Warisan Budaya</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">Masjid Agung Demak</h5>
+                            <p class="card-text">Tetap menjadi pusat spiritual dan wisata religi hingga kini.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">Tradisi Grebeg & Sekaten</h5>
+                            <p class="card-text">Masih dilestarikan di Yogyakarta dan Surakarta dengan akar budaya Demak.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">Kesenian Islam</h5>
+                            <p class="card-text">Wayang kulit Islami, rebana, dan hadrah tetap hidup dalam masyarakat Jawa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Ensiklopedia Kesultanan Demak | Sumber: Babad Demak, Sejarah Nasional Indonesia, dan Arsip Museum Masjid Agung Demak</p>
+            <p>Anggota: Joseph 10-5, Jessica 10-5, Kevin A. 10-5, Callysta 10-5, SMA Talenta Bandung</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

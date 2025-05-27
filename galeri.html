@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Peninggalan Kesultanan Demak</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Gaya Umum */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+        }
+        
+        /* Header */
+        .gallery-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('assets/img/galeri-bg.jpg') center/cover;
+            padding: 100px 0;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        /* Gallery Grid */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 300px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-desc {
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.1s;
+        }
+        
+        .gallery-item:hover .gallery-desc {
+            opacity: 1;
+        }
+        
+        /* Filter Kategori */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            border: none;
+            background: #e9ecef;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #007bff;
+            color: white;
+        }
+        
+        /* Lightbox Modal */
+        .modal-img {
+            max-height: 80vh;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .modal-body {
+            padding: 0;
+            text-align: center;
+        }
+        
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .gallery-header {
+                padding: 60px 0;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+        }
+
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-title {
+            color: #2c3e50;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .card-title:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: #007bff;
+        }
+
+        .card-text {
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+        .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: white !important;
+      letter-spacing: 1px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8) !important;
+            padding: 8px 20px !important;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, 
+        .nav-link.active {
+            color: white !important;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Gaya Header Khusus */
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('assets/img/header.jpg') center/cover no-repeat;
+    padding: 150px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.page-header p.lead {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+/* Responsivitas Header */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 0;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    .page-header p.lead {
+        font-size: 1.2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar Konsisten -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Kesultanan Demak</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sejarah.html">Sejarah</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="galeri.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Galeri -->
+    <header class="page-header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/img/header.jpg')">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Galeri Peninggalan Kesultanan Demak</h1>
+            <p class="lead">Menyaksikan Jejak Kejayaan Islam di Tanah Jawa</p>
+        </div>
+    </header>
+
+<!-- Tambahkan ini setelah </header> dan sebelum filter kategori -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Mengenal Peninggalan Kesultanan Demak</h2>
+                    <p class="card-text">
+                        Galeri ini menampilkan berbagai peninggalan bersejarah dari Kesultanan Demak yang menjadi saksi bisu kejayaan Islam pertama di tanah Jawa. Kesultanan Demak (1475-1568) tidak hanya berperan sebagai pusat pemerintahan, tetapi juga sebagai sentra penyebaran agama Islam di Nusantara melalui pendekatan budaya dan kesenian.
+                    </p>
+                    <p class="card-text">
+                        Arsitektur khas Demak memperlihatkan perpaduan unik antara unsur Islam dan budaya lokal Jawa, seperti terlihat pada Masjid Agung Demak yang menjadi mahakarya para Wali Songo. Masjid ini dibangun dengan teknik tradisional menggunakan kayu jati pilihan dan atap bertumpang tiga yang melambangkan iman, islam, dan ihsan.
+                    </p>
+                    <p class="card-text">
+                        Selain bangunan, Demak juga meninggalkan warisan seni yang kaya, mulai dari seni ukir kayu dengan motif kaligrafi, keris bernuansa Islami, hingga manuskrip kuno berisi ajaran tasawuf. Karya-karya seni ini tidak hanya bernilai estetis tinggi tetapi juga mengandung pesan-pesan spiritual yang mendalam.
+                    </p>
+                    <p class="card-text">
+                        Tradisi yang berkembang di era Demak seperti Grebeg Besar dan Sekaten hingga kini masih dilestarikan, menunjukkan betapa pengaruh budaya Demak tetap hidup dalam masyarakat Jawa modern. Melalui galeri ini, kami berharap dapat mengajak pengunjung untuk menyelami kekayaan warisan budaya Demak yang menjadi fondasi penting perkembangan Islam di Nusantara.
+                    </p>
+                    <p class="card-text">
+                        Setiap benda dan bangunan dalam galeri ini memiliki cerita dan makna filosofisnya sendiri. Mulai dari mimbar masjid yang menjadi simbol penyebaran ilmu, hingga keris pusaka yang melambangkan perlawanan terhadap penjajahan Portugis. Mari kita jelajahi bersama warisan berharga ini untuk memahami lebih dalam sejarah Islam di tanah Jawa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Filter Kategori (Opsional) -->
+    <div class="container">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="arsitektur">Arsitektur</button>
+            <button class="filter-btn" data-filter="seni">Seni</button>
+            <button class="filter-btn" data-filter="artefak">Artefak</button>
+            <button class="filter-btn" data-filter="tradisi">Tradisi</button>
+            <button class="filter-btn" data-filter="peta">Peta</button>
+        </div>
+    </div>
+
+    <!-- Galeri Grid -->
+    <main class="container">
+        <div class="gallery-container">
+            <!-- Item 1: Masjid Agung Demak -->
+            <div class="gallery-item" data-category="arsitektur" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/masjid1.jpg" data-bs-title="Masjid Agung Demak" data-bs-desc="Masjid tertua di Jawa yang dibangun oleh Wali Songo pada abad ke-15 dengan arsitektur khas Islam-Jawa.">
+                <img src="assets/img/masjid1.jpg" alt="Masjid Agung Demak" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Masjid Agung Demak</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+            
+            <!-- Item 2: Keris Sunan Kalijaga -->
+            <div class="gallery-item" data-category="artefak" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/keris.jpeg" data-bs-title="Keris Sunan Kalijaga" data-bs-desc="Keris pusaka milik Sunan Kalijaga dengan ukiran kaligrafi Islam yang halus.">
+                <img src="assets/img/keris.jpeg" alt="Keris Sunan Kalijaga" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Keris Sunan Kalijaga</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+            
+            <!-- Item 3: Mimbar Masjid -->
+            <div class="gallery-item" data-category="seni" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/mimbar.jpg" data-bs-title="Mimbar Kayu Masjid" data-bs-desc="Mimbar kuno dari kayu jati berukir motif flora dengan kaligrafi Arab, digunakan untuk khutbah.">
+                <img src="assets/img/mimbar.jpg" alt="Mimbar Kayu Masjid" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Mimbar Kayu Masjid</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+            
+            <!-- Item 4: Gapura Makam -->
+            <div class="gallery-item" data-category="arsitektur" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/gapura.jpg" data-bs-title="Gapura Makam Sunan Kalijaga" data-bs-desc="Gapura makam dengan paduan arsitektur Hindu dan Islam, simbol akulturasi budaya. (Sumber foto tidak lengkap)">
+                <img src="assets/img/gapura.jpg" alt="Gapura Makam Sunan Kalijaga" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Gapura Makam Sunan Kalijaga</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+            
+            <!-- Item 5: Manuskrip Suluk -->
+            <div class="gallery-item" data-category="seni" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/manuskrip.jpg" data-bs-title="Manuskrip Suluk Wujil" data-bs-desc="Naskah kuno berisi ajaran tasawuf karya Sunan Bonang, ditulis dalam aksara Pegon. (Sumber foto tidak lengkap)">
+                <img src="assets/img/manuskrip.jpg" alt="Manuskrip Suluk Wijil" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Manuskrip Suluk Wujil</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+            
+            <!-- Item 6: Pakaian Adat -->
+            <div class="gallery-item" data-category="artefak" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/pakaian.jpg" data-bs-title="Pakaian Adat Demak" data-bs-desc="Busana kerajaan dengan motif khas Jawa yang dipadukan dengan kaligrafi Islam.">
+                <img src="assets/img/pakaian.jpg" alt="Pakaian Adat Demak" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Pakaian Adat Demak</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+            
+            <!-- Item 7: Grebeg Besar -->
+            <div class="gallery-item" data-category="tradisi" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/grebeg.jpg" data-bs-title="Tradisi Grebeg Besar" data-bs-desc="Upacara tahunan warisan Demak yang menggabungkan unsur Islam dan budaya Jawa.">
+                <img src="assets/img/grebeg.jpg" alt="Tradisi Grebeg Besar" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Tradisi Grebeg Besar</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+            
+            <!-- Item 8: Seni Rebana -->
+            <div class="gallery-item" data-category="seni" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/rebana.jpg" data-bs-title="Seni Rebana Demak" data-bs-desc="Alat musik tradisional untuk dakwah Islam yang berkembang pesat di era Demak.">
+                <img src="assets/img/rebana.jpg" alt="Seni Rebana Demak" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Seni Rebana Demak</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+            
+            <!-- Item 9: Ukiran Kayu -->
+            <div class="gallery-item" data-category="seni" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/ukiran.jpg" data-bs-title="Ukiran Kayu Khas Demak" data-bs-desc="Seni ukir dengan motif alam dan kaligrafi yang menghiasi masjid dan istana.">
+                <img src="assets/img/ukiran.jpg" alt="Ukiran Kayu Khas Demak" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Ukiran Kayu Khas Demak</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+
+             <!-- Item 10: Peta -->
+             <div class="gallery-item" data-category="peta" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="assets/img/peta.jpg" data-bs-title="Peta Kesultanan Demak" data-bs-desc="Kesultanan Demak terletak di pantai utara Jawa, tepatnya di daerah yang kini dikenal sebagai Kabupaten Demak, Jawa Tengah. ">
+                <img src="assets/img/peta.jpg" alt="Peta Kesultanan Demak" class="gallery-img">
+                <div class="gallery-caption">
+                    <h5 class="gallery-title">Peta Kesultanan Demak</h5>
+                    <p class="gallery-desc">Klik untuk melihat detail</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Lightbox -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalImageTitle">Judul Gambar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" class="modal-img" id="modalImage">
+                    <p class="text-muted mt-3 px-3" id="modalImageDesc">Deskripsi gambar akan muncul di sini</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Konsisten -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 Ensiklopedia Kesultanan Demak | Sumber: Museum Masjid Agung Demak & Balai Pelestarian Cagar Budaya</p>
+            <p class="mb-0">Anggota: Joseph 10-5, Jessica 10-5, Kevin A. 10-5, Callysta 10-5, SMA Talenta Bandung</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Inisialisasi Lightbox Modal
+        const imageModal = document.getElementById('imageModal');
+        if (imageModal) {
+            imageModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const imgSrc = button.getAttribute('data-bs-img');
+                const imgTitle = button.getAttribute('data-bs-title');
+                const imgDesc = button.getAttribute('data-bs-desc');
+                
+                document.getElementById('modalImage').src = imgSrc;
+                document.getElementById('modalImage').alt = imgTitle;
+                document.getElementById('modalImageTitle').textContent = imgTitle;
+                document.getElementById('modalImageDesc').textContent = imgDesc;
+            });
+        }
+        
+        // Filter Kategori Galeri
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter items
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

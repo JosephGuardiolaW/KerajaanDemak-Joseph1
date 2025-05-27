@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Kesultanan Demak</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Gaya untuk Carousel */
+    .img-wrapper {
+      border-radius: 20px;
+      overflow: hidden;
+      width: 90%;
+      max-width: 1000px;
+      height: 360px;
+      margin: 40px auto 0 auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: transform 0.5s ease;
+    }
+
+    .img-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(1);
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+    }
+
+    /* Gaya untuk Timeline */
+    .timeline {
+      list-style: none;
+      padding: 0;
+      position: relative;
+    }
+
+    .timeline:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #007bff;
+      left: 25px;
+      margin-left: -2px;
+    }
+
+    .timeline li {
+      position: relative;
+      padding-left: 50px;
+      margin-bottom: 30px;
+    }
+
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 20px;
+      height: 20px;
+      background-color: #007bff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #fff;
+      z-index: 1;
+    }
+
+    .timeline .event {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline .event:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .timeline .event h5 {
+      margin: 0 0 10px 0;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    /* Gaya untuk Purpose Section */
+    .purpose-section {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+      margin: 40px 0;
+    }
+
+    .purpose-section .container {
+      max-width: 900px;
+    }
+
+    .purpose-section h2 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    .purpose-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #34495e;
+    }
+
+    /* Gaya untuk Header */
+    .main-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    /* Gaya untuk Navbar */
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      padding: 8px 15px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #007bff !important;
+    }
+
+    /* Responsivitas */
+    @media (max-width: 768px) {
+      .img-wrapper {
+        height: 250px;
+      }
+      
+      .main-title {
+        font-size: 2rem;
+      }
+      
+      .timeline li {
+        padding-left: 40px;
+      }
+      
+      .timeline:before {
+        left: 20px;
+      }
+    }
+
+
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: white !important;
+        letter-spacing: 1px;
+    }
+
+    .nav-link {
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: rgba(255,255,255,0.8) !important;
+        padding: 8px 20px !important;
+        margin: 0 5px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover, 
+    .nav-link.active {
+        color: rgb(255, 255, 255) !important;
+        background-color: rgba(255,255,255,0.1);
+    }
+
+    .navbar-toggler {
+        border-color: rgba(255,255,255,0.1);
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Kesultanan Demak</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navContent">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="sejarah.html">Sejarah</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div id="berandaSlide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="img-wrapper">
+          <img src="assets/img/demak1.jpg" class="d-block w-100" alt="Masjid Agung Demak">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="img-wrapper">
+          <img src="assets/img/demak2.jpg" class="d-block w-100" alt="Peninggalan Sejarah Demak">
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#berandaSlide" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Sebelumnya</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#berandaSlide" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Berikutnya</span>
+    </button>
+  </div>
+</div>
+
+<section class="text-center py-5">
+  <div class="container">
+    <h1 class="main-title">Ensiklopedia Kesultanan Demak</h1>
+    <p class="lead text-muted">Menelusuri Jejak Islam Pertama di Tanah Jawa</p>
+  </div>
+</section>
+
+<section class="purpose-section">
+  <div class="container">
+    <h2 class="fw-bold">Tujuan dan Latar Belakang</h2>
+    <p>Situs web ini hadir sebagai sarana edukatif yang mengangkat kembali sejarah Kesultanan Demak, sebuah kerajaan Islam awal yang berpengaruh di Nusantara. Kami ingin mempermudah generasi muda dalam mengakses dan memahami jejak sejarah Islam di tanah Jawa.</p>
+    <p>Selain itu, platform ini berfungsi sebagai media digital pelestarian sejarah lokal dengan tampilan visual yang informatif, menarik, dan mendalam. Dengan menyajikan informasi yang akurat dan menarik, kami berharap dapat meningkatkan minat generasi muda terhadap sejarah Islam Nusantara.</p>
+  </div>
+</section>
+
+<section class="timeline-section py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5">Kronologi</h2>
+    <ul class="timeline">
+      <li>
+        <div class="event">
+          <h5>1475</h5>
+          <p>Raden Patah mendirikan Kesultanan Demak, yang menjadi kerajaan Islam pertama di Pulau Jawa. Ia merupakan keturunan terakhir dari Majapahit yang masuk Islam dan kemudian menjadi tokoh penting dalam menyebarkan Islam di wilayah pesisir utara Jawa. Kerajaan Demak didirikan atas dasar dorongan untuk menyebarkan Islam dan juga karena kemunduran Kerajaan Majapahit. Raden Patah memisahkan diri dari Majapahit dan mendirikan Demak sebagai kerajaan Islam pertama di Jawa.</p>
+        </div>
+      </li>
+      <li>
+        <div class="event">
+          <h5>1500-an Awal</h5>
+          <p>Demak tumbuh menjadi pusat dakwah Islam yang kuat. Melalui perdagangan, seni pertunjukan, dan pendidikan pesantren, ajaran Islam disebarkan secara damai. Masjid Agung Demak dibangun sebagai simbol penting dari kejayaan dan pusat keagamaan. Pada masa ini, Demak juga menjadi pusat perdagangan rempah-rempah yang menghubungkan Jawa dengan Malaka dan wilayah lainnya di Nusantara.</p>
+        </div>
+      </li>
+      <li>
+        <div class="event">
+          <h5>1521</h5>
+          <p>Raden Patah wafat dan digantikan oleh putranya, Pati Unus, yang dikenal karena serangannya ke Portugis di Malaka. Meskipun gagal, upaya ini menunjukkan ambisi militer dan pengaruh Demak di kawasan. Pati Unus dijuluki "Pangeran Sabrang Lor" karena ekspedisi militernya melintasi Laut Jawa untuk menyerang Portugis di Malaka.</p>
+        </div>
+      </li>
+      <li>
+        <div class="event">
+          <h5>1524 - 1546</h5>
+          <p>Sultan Trenggono naik takhta dan membawa Demak ke puncak kejayaan. Ia memperluas wilayah kekuasaan ke Jawa Tengah dan Timur. Masuknya daerah-daerah baru memperkuat pengaruh Islam. Sunan Kalijaga memainkan peran penting dalam mengislamkan masyarakat melalui seni, seperti wayang dan gamelan. Pada masa ini, Demak menjadi pusat penyebaran Islam yang paling berpengaruh di Jawa.</p>
+        </div>
+      </li>
+      <li>
+        <div class="event">
+          <h5>1546</h5>
+          <p>Wafatnya Sultan Trenggono memicu perebutan kekuasaan antara Sunan Prawoto dan Arya Penangsang. Konflik ini menimbulkan perang saudara dan melemahkan kekuatan pusat pemerintahan Kesultanan Demak. Perebutan kekuasaan ini menyebabkan ketidakstabilan politik dan melemahkan posisi Demak sebagai kekuatan utama di Jawa.</p>
+        </div>
+      </li>
+      <li>
+        <div class="event">
+          <h5>1568</h5>
+          <p>Kudus dan Pajang mulai menguat sebagai pusat kekuasaan baru setelah Demak melemah. Jaka Tingkir dari Pajang akhirnya mengambil alih hegemoni di Jawa Tengah, menandai berakhirnya kekuasaan Dinasti Demak. Meskipun secara politik Demak sudah melemah, pengaruh budaya dan keagamaannya tetap bertahan melalui para wali dan ulama.</p>
+        </div>
+      </li>
+      <li>
+        <div class="event">
+          <h5>Hingga Kini</h5>
+          <p>Warisan Kesultanan Demak masih terasa melalui bangunan Masjid Agung Demak, perayaan Sekaten, seni rebana, dan nilai budaya Islam yang terus dilestarikan oleh masyarakat Jawa hingga saat ini. Tradisi keagamaan dan budaya yang dikembangkan pada masa Demak menjadi fondasi penting bagi perkembangan Islam di Jawa.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <p>&copy; 2025 Ensiklopedia Kesultanan Demak | Sumber: Buku Sejarah Nasional Indonesia, Babad Demak, dan Arsip Museum Masjid Agung Demak</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
